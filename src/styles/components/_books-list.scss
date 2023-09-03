@@ -1,0 +1,91 @@
+.book-list__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  
+    .book-list__header {
+      margin-bottom: $gutterVerticalSmall;
+    }
+
+    .book-list__search {
+        margin: $gutterVerticalLarger 0;
+    }
+  
+    .book-list__content {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+      grid-gap: $gutterVerticalLarge $gutterHorizontalLarge;
+  
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+  
+      .book-list__item {
+        display: grid;
+        height: 100%;
+        background-color: $colorNeutralLightest;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        border: 1px solid #ddd;
+        padding: $gutterVerticalSmall $gutterHorizontalSmall;
+        text-align: center;
+        transition: transform 0.3s ease;
+  
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+  
+        .book-list__item-image-container {
+          margin-bottom: $gutterVerticalSmall;
+          max-height: 280px;
+          overflow: hidden;
+        }
+  
+        .book-list__item-image {
+            object-fit: cover;
+          min-width: 100%;
+          min-height: 100%;
+        }
+  
+        .book-list__item-title {
+          font-size: 1.25rem;
+          font-weight: bold;
+          margin-bottom: $gutterVerticalSmall;
+        }
+
+        .book-list__item-details {
+            display: grid;
+        }
+  
+        .book-list__item-info {
+          margin-bottom: $gutterVerticalSmall;
+          color: $colorPrimaryDarker;
+          text-align: left;
+        }
+  
+        .book-list__item-label {
+          font-weight: bold;
+          margin-right: $gutterHorizontalSmall;
+        }
+  
+        .book-list__item-reviews {
+          display: none; // Initially hidden
+  
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+  
+            li {
+              margin-bottom: $gutterVerticalSmall;
+            }
+          }
+        }
+
+        .add-to-cart-button {
+            width: 100%;
+        }
+      }
+    }
+  }
