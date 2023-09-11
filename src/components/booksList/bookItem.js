@@ -2,6 +2,13 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
 import { Link } from 'react-router-dom';
 
+/**
+ * React component for displaying a book item.
+ * @component
+ * @param {Object} data - The book data to display.
+ * @param {string} typeOfPage - The type of page where the book item is displayed.
+ * @returns {JSX.Element} React component
+ */
 const BookItem = ({ data, typeOfPage }) => {
     const {
         id,
@@ -11,14 +18,18 @@ const BookItem = ({ data, typeOfPage }) => {
         publisher,
         publication_date,
         price,
-        reviews,
-        description,
         reviewNumber,
         image_url,
     } = data;
 
     const dispatch = useDispatch();
 
+    /**
+     * Handles the addition of a book to the cart.
+     * @param {Object} book - The book data to add to the cart.
+     * @memberof BookItem
+     * @inner
+     */
     const handleAddToCart = (book) => {
         dispatch(addToCart(book));
     };
